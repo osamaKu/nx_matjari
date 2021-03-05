@@ -1,18 +1,13 @@
 {
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "npmScope": "v2matjari",
   "tasksRunnerOptions": {
     "default": {
@@ -26,12 +21,8 @@
     }
   },
   "projects": {
-    "web-seller": {
-      "tags": []
-    },
-    "web-seller-e2e": {
-      "tags": [],
-      "implicitDependencies": ["web-seller"]
-    }
+    "web-seller": { "tags": [] },
+    "web-seller-e2e": { "tags": [], "implicitDependencies": ["web-seller"] },
+    "api": { "tags": [] }
   }
 }
