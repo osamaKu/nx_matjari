@@ -23,6 +23,7 @@
   "projects": {
     "web-seller": { "tags": [] },
     "web-seller-e2e": { "tags": [], "implicitDependencies": ["web-seller"] },
-    "api": { "tags": [] }
+    "api": { "tags": [] },
+    "core": { "tags": [] }
   }
 }

@@ -11,6 +11,7 @@ export function Index() {
   return (
     <div className={styles.page}>
       <h2>Resources &amp; Tools</h2>
+      <button className={'bg-green-500 text-white'}>test</button>
       <p>Thank you for using and showing some ♥ for Nx.</p>
       <div className="flex github-star-container">
         <a href="https://github.com/nrwl/nx" target="_blank" rel="noopener noreferrer">
