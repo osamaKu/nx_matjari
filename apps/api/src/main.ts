@@ -5,7 +5,7 @@
 
 import { Logger } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
-import { AppConfigService } from '@v2matjari/core'
+import { AppConfigService } from '@v2matjari/api/core'
 
 import { AppModule } from './app/app.module'
 
@@ -23,6 +23,7 @@ async function bootstrap() {
 
   await app.listen(port, () => {
     Logger.log('Listening at ' + url + '/' + prefix + ' in ' + env + ' mode')
+    Logger.log('Listening at ' + url + '/graphql' + ' in ' + env + ' mode')
   })
 }
 

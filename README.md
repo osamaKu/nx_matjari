@@ -88,3 +88,28 @@ Nx Cloud pairs with Nx in order to enable you to build and test code more rapidl
 Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
+
+- create store library [DONE]
+- create product library [DONE]
+- create models store and product [DONE]
+- create store and products resolver [DONE]
+  - create queries
+  - create mutations
+- create store and products services
+
+## Store
+
+- name: string
+- description: string
+- url: string
+- owner: User
+- products Product[]
+
+## Product
+
+- name: string
+- description: string
+- store: Store
+- price: number
+- pictures_url: string[]
+- thumbnail_url: string

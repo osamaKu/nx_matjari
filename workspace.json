@@ -195,26 +195,151 @@
         }
       }
     },
-    "core": {
-      "root": "libs/core",
-      "sourceRoot": "libs/core/src",
+    "api-core": {
+      "root": "libs/api/core",
+      "sourceRoot": "libs/api/core/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/core/**/*.ts"
+              "libs/api/core/**/*.ts"
             ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/libs/core"
+            "coverage/libs/api/core"
           ],
           "options": {
-            "jestConfig": "libs/core/jest.config.js",
+            "jestConfig": "libs/api/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui": {
+      "root": "libs/web/ui",
+      "sourceRoot": "libs/web/ui/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/web/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/web/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-layouts-web": {
+      "root": "libs/web/layouts/web",
+      "sourceRoot": "libs/web/layouts/web/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/layouts/web/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/web/layouts/web"
+          ],
+          "options": {
+            "jestConfig": "libs/web/layouts/web/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-layouts-admin": {
+      "root": "libs/web/layouts/admin",
+      "sourceRoot": "libs/web/layouts/admin/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/layouts/admin/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/web/layouts/admin"
+          ],
+          "options": {
+            "jestConfig": "libs/web/layouts/admin/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-store": {
+      "root": "libs/api/store",
+      "sourceRoot": "libs/api/store/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/api/store/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/api/store"
+          ],
+          "options": {
+            "jestConfig": "libs/api/store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-product": {
+      "root": "libs/api/product",
+      "sourceRoot": "libs/api/product/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/api/product/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/api/product"
+          ],
+          "options": {
+            "jestConfig": "libs/api/product/jest.config.js",
             "passWithNoTests": true
           }
         }

@@ -24,6 +24,11 @@
     "web-seller": { "tags": [] },
     "web-seller-e2e": { "tags": [], "implicitDependencies": ["web-seller"] },
     "api": { "tags": [] },
-    "core": { "tags": [] }
+    "api-core": { "tags": [] },
+    "web-ui": { "tags": [] },
+    "web-layouts-web": { "tags": [] },
+    "web-layouts-admin": { "tags": [] },
+    "api-store": { "tags": [] },
+    "api-product": { "tags": [] }
   }
 }
