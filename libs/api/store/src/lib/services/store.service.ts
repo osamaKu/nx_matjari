@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common'
-import { CreateStoreInput } from '../dto/create-store'
-import { UpdateStoreInput } from '../dto/update-store'
+import { CreateStoreInput } from '../dto/create-store.input'
+import { UpdateStoreInput } from '../dto/update-store.input'
 import Store from '../models/store.model'
+import { ApiDataService } from '@v2matjari/api/data'
 
 @Injectable()
-export class StoreService {
-  // constructor() {}
+export class ApiStoreService {
+  constructor(private readonly data: ApiDataService) {}
 
   /**
    *
@@ -13,8 +14,6 @@ export class StoreService {
    * @return Promise Store obj | undefined
    */
   public async findStorById(id: string): Promise<Store | undefined> {
-    console.log(id)
-
     return undefined
   }
 
@@ -24,12 +23,11 @@ export class StoreService {
    * @return Promise Store obj
    */
   async createStore(createStoreInput: CreateStoreInput): Promise<Store> {
-    const store = {
-      id: Date.now().toString(),
-      ...createStoreInput,
-    }
-
-    return store
+    return await this.data.store.create({
+      data: {
+        ...createStoreInput,
+      },
+    })
   }
 
   /**
@@ -39,7 +37,7 @@ export class StoreService {
    */
   async FindByIdAndUpdateStore(updateStoreInput: UpdateStoreInput): Promise<Store> {
     const store = {
-      id: '12-0',
+      id: 1,
       name: 'qiow',
       description: 'qwpo',
       url: 'oiqw',
@@ -53,9 +51,9 @@ export class StoreService {
    * @param updateStoreInput obj
    * @return Promise Store obj
    */
-  async FindByIdAndDeleteStore(id: string): Promise<Store> {
+  async FindByIdAndDeleteStore(id: number): Promise<Store> {
     const store = {
-      id: '12-0',
+      id: 1,
       name: 'qiow',
       description: 'qwpo',
       url: 'oiqw',

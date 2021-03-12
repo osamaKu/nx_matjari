@@ -1,12 +1,12 @@
 import { Resolver, Query, Args, Mutation } from '@nestjs/graphql'
-import { CreateStoreInput } from '../dto/create-store'
-import { UpdateStoreInput } from '../dto/update-store'
+import { CreateStoreInput } from '../dto/create-store.input'
+import { UpdateStoreInput } from '../dto/update-store.input'
 import { Store } from '../models/store.model'
-import { StoreService } from '../services/store.service'
+import { ApiStoreService } from '../services/store.service'
 
 @Resolver()
-export class StoreResolver {
-  constructor(private storeService: StoreService) {}
+export class ApiStoreResolver {
+  constructor(private storeService: ApiStoreService) {}
 
   @Query(() => Store, { nullable: true })
   async findById(@Args('id') id: string): Promise<Store | undefined> {
@@ -39,7 +39,7 @@ export class StoreResolver {
    * @returns Promise Store obj
    */
   @Mutation(() => Store, { nullable: true })
-  async deleteStore(@Args('id') id: string): Promise<Store> {
+  async deleteStore(@Args('id') id: number): Promise<Store> {
     return await this.storeService.FindByIdAndDeleteStore(id)
   }
 }

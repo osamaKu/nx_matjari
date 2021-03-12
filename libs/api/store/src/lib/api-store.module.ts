@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common'
-import { StoreResolver } from './resolvers/store.resolver'
-import { StoreService } from './services/store.service'
+import { ApiDataModule } from '@v2matjari/api/data'
+import { ApiStoreResolver } from './resolvers/store.resolver'
+import { ApiStoreService } from './services/store.service'
 
 @Module({
+  imports: [ApiDataModule],
   controllers: [],
-  providers: [StoreResolver, StoreService],
+  providers: [ApiStoreResolver, ApiStoreService],
   exports: [],
 })
 export class ApiStoreModule {}

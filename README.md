@@ -93,9 +93,9 @@ Visit [Nx Cloud](https://nx.app/) to learn more.
 - create product library [DONE]
 - create models store and product [DONE]
 - create store and products resolver [DONE]
-  - create queries
-  - create mutations
-- create store and products services
+  - create queries [DONE]
+  - create mutations [DONE]
+- create store and products services [DONE]
 
 ## Store
 

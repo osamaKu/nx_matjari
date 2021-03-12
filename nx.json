@@ -29,6 +29,8 @@
     "web-layouts-web": { "tags": [] },
     "web-layouts-admin": { "tags": [] },
     "api-store": { "tags": [] },
-    "api-product": { "tags": [] }
+    "api-product": { "tags": [] },
+    "api-data": { "tags": [] },
+    "api-auth": { "tags": [] }
   }
 }

@@ -12,5 +12,7 @@ module.exports = {
     '<rootDir>/libs/web/layouts/admin',
     '<rootDir>/libs/api/store',
     '<rootDir>/libs/api/product',
+    '<rootDir>/libs/api/data',
+    '<rootDir>/libs/api/auth',
   ],
 }

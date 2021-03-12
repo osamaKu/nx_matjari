@@ -6,7 +6,7 @@ import { Product } from '@v2matjari/api/product'
 export class Store {
   @Field({ nullable: true })
   @IsOptional()
-  id?: string
+  id?: number
 
   @Field(() => String)
   @IsNotEmpty()

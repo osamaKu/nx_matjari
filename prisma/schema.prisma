@@ -54,13 +54,21 @@ model Store {
 }
 
 model Product {
-  id            Int      @id @default(autoincrement())
-  createdAt     DateTime @default(now())
+  id            Int       @id @default(autoincrement())
+  createdAt     DateTime  @default(now())
   name          String
   slug          String
   description   String
   price         Decimal
   thumbnail_url String
-  store         Store    @relation(fields: [storeId], references: [id])
+  store         Store     @relation(fields: [storeId], references: [id])
   storeId       Int
+  picture       Picture[]
+}
+
+model Picture {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  product   Product  @relation(fields: [productId], references: [id])
+  productId Int
 }

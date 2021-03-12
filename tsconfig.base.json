@@ -20,7 +20,9 @@
       "@v2matjari/web/layouts/web": ["libs/web/layouts/web/src/index.ts"],
       "@v2matjari/web/layouts/admin": ["libs/web/layouts/admin/src/index.ts"],
       "@v2matjari/api/store": ["libs/api/store/src/index.ts"],
-      "@v2matjari/api/product": ["libs/api/product/src/index.ts"]
+      "@v2matjari/api/product": ["libs/api/product/src/index.ts"],
+      "@v2matjari/api/data": ["libs/api/data/src/index.ts"],
+      "@v2matjari/api/auth": ["libs/api/auth/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
