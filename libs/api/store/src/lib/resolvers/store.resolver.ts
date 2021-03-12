@@ -1,10 +1,13 @@
+import { UseGuards } from '@nestjs/common'
 import { Resolver, Query, Args, Mutation } from '@nestjs/graphql'
 import { CreateStoreInput } from '../dto/create-store.input'
 import { UpdateStoreInput } from '../dto/update-store.input'
 import { Store } from '../models/store.model'
 import { ApiStoreService } from '../services/store.service'
+import { GqlAuthGuard } from '@v2matjari/api/auth'
 
 @Resolver()
+@UseGuards(GqlAuthGuard)
 export class ApiStoreResolver {
   constructor(private storeService: ApiStoreService) {}
 

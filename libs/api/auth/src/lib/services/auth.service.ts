@@ -1,4 +1,5 @@
 import { Injectable, BadRequestException } from '@nestjs/common'
+import { JwtService } from '@nestjs/jwt'
 import { ApiDataService } from '@v2matjari/api/data'
 import { CreateUserInput } from '../dto/register-user.input'
 import { AuthHelper } from '../auth.helper'
@@ -8,7 +9,7 @@ import { JwtDto } from '../dto/jwt.dto'
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly data: ApiDataService) {}
+  constructor(private readonly data: ApiDataService, private jwt: JwtService) {}
 
   public async registerUser(createUserInput: CreateUserInput): Promise<AuthResult> {
     // check unique email
@@ -28,9 +29,11 @@ export class AuthService {
       },
     })
 
+    const token: string = this.signToken(newUser.id)
+
     const result = {
       user: newUser,
-      token: '2309230293',
+      token,
     }
 
     return result
@@ -43,5 +46,11 @@ export class AuthService {
    */
   public async validateUser(userId: number): Promise<User> {
     return await this.data.findUserById(userId)
+  }
+
+  private signToken(id: number) {
+    const payload: JwtDto = { userId: id }
+
+    return this.jwt.sign(payload)
   }
 }

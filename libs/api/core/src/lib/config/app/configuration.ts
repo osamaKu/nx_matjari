@@ -7,4 +7,5 @@ export default registerAs('app', () => ({
   port: process.env.PORT,
   prefix: process.env.PREFIX,
   graphqlPort: process.env.GRAPHQL_PORT,
+  jwtSecret: process.env.JWT_SECRET,
 }))
