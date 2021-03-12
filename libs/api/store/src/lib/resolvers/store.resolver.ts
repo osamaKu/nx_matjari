@@ -4,7 +4,7 @@ import { CreateStoreInput } from '../dto/create-store.input'
 import { UpdateStoreInput } from '../dto/update-store.input'
 import { Store } from '../models/store.model'
 import { ApiStoreService } from '../services/store.service'
-import { GqlAuthGuard } from '@v2matjari/api/auth'
+import { GqlAuthGuard, CtxUser, User } from '@v2matjari/api/auth'
 
 @Resolver()
 @UseGuards(GqlAuthGuard)
@@ -18,12 +18,15 @@ export class ApiStoreResolver {
 
   /**
    *
-   * @param createStoreInput
+   * @param createStoreInput obj, userId number
    * @return Promise Store obj
    */
   @Mutation(() => Store, { nullable: true })
-  async createStore(@Args('createStoreInput') createStoreInput: CreateStoreInput): Promise<Store> {
-    return await this.storeService.createStore(createStoreInput)
+  async createStore(
+    @CtxUser() user: User,
+    @Args('createStoreInput') createStoreInput: CreateStoreInput,
+  ): Promise<Store> {
+    return await this.storeService.createStore(user.id, createStoreInput)
   }
 
   /**
@@ -32,7 +35,10 @@ export class ApiStoreResolver {
    * @returns Promise Store obj
    */
   @Mutation(() => Store, { nullable: true })
-  async updateStore(@Args('updateStoreInput') updateStoreInput: UpdateStoreInput): Promise<Store> {
+  async updateStore(
+    @CtxUser() user: User,
+    @Args('updateStoreInput') updateStoreInput: UpdateStoreInput,
+  ): Promise<Store> {
     return await this.storeService.FindByIdAndUpdateStore(updateStoreInput)
   }
 
@@ -42,7 +48,7 @@ export class ApiStoreResolver {
    * @returns Promise Store obj
    */
   @Mutation(() => Store, { nullable: true })
-  async deleteStore(@Args('id') id: number): Promise<Store> {
+  async deleteStore(@CtxUser() user: User, @Args('id') id: number): Promise<Store> {
     return await this.storeService.FindByIdAndDeleteStore(id)
   }
 }

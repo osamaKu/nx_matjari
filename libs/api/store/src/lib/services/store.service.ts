@@ -19,13 +19,14 @@ export class ApiStoreService {
 
   /**
    *
-   * @param updateStoreInput
+   * @param createStoreInput obj, userId number
    * @return Promise Store obj
    */
-  async createStore(createStoreInput: CreateStoreInput): Promise<Store> {
+  async createStore(userId: number, createStoreInput: CreateStoreInput): Promise<Store> {
     return await this.data.store.create({
       data: {
         ...createStoreInput,
+        owner: { connect: { id: userId } },
       },
     })
   }

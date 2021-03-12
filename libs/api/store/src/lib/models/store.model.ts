@@ -1,6 +1,7 @@
 import { Field, ObjectType } from '@nestjs/graphql'
 import { IsNotEmpty, Length, ValidateNested, IsOptional } from 'class-validator'
 import { Product } from '@v2matjari/api/product'
+import { User } from '@v2matjari/api/auth'
 
 @ObjectType()
 export class Store {
@@ -27,6 +28,10 @@ export class Store {
   @ValidateNested()
   @IsOptional()
   products?: [Product]
+
+  @Field(() => User, { nullable: true })
+  @IsOptional()
+  owner?: User
 }
 
 export default Store
