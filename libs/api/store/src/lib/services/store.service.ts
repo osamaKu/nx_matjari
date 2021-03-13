@@ -9,11 +9,25 @@ export class ApiStoreService {
   constructor(private readonly data: ApiDataService) {}
 
   /**
+   * include owner of store and store products
+   */
+  private readonly storeIncludes = {
+    owner: true,
+  }
+
+  /**
    *
    * @param id string
    * @return Promise Store obj | undefined
    */
-  public async findStorById(id: string): Promise<Store | undefined> {
+  public async findStorById(id: number): Promise<Store | undefined> {
+    const store = this.data.store.findFirst({
+      where: { id },
+      include: this.storeIncludes,
+    })
+
+    if (store) return store
+
     return undefined
   }
 

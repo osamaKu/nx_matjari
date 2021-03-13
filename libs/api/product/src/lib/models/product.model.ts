@@ -5,7 +5,7 @@ import { IsNotEmpty, Length, IsOptional } from 'class-validator'
 export class Product {
   @Field({ nullable: true })
   @IsOptional()
-  id?: string
+  id?: number
 
   @Field(() => String)
   @IsNotEmpty()

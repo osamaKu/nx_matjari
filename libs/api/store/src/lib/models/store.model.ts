@@ -27,7 +27,7 @@ export class Store {
   @Field(() => [Product], { nullable: true })
   @ValidateNested()
   @IsOptional()
-  products?: [Product]
+  products?: Product[]
 
   @Field(() => User, { nullable: true })
   @IsOptional()

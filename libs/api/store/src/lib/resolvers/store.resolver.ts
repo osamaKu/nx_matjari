@@ -12,7 +12,7 @@ export class ApiStoreResolver {
   constructor(private storeService: ApiStoreService) {}
 
   @Query(() => Store, { nullable: true })
-  async findById(@Args('id') id: string): Promise<Store | undefined> {
+  async findStoreById(@CtxUser() user: User, @Args('id') id: number): Promise<Store | undefined> {
     return await this.storeService.findStorById(id)
   }
 
